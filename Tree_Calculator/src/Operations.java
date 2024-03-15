@@ -23,6 +23,23 @@ public enum Operations {
         }
     }
 
+    static public boolean isOperation(char value) {
+        switch (value) {
+            case '+':
+                return true;
+            case '-':
+                return true;
+            case '*':
+                return true;
+            case '/':
+                return true;
+            case '%':
+                return true;
+            default:
+                return false;
+        }
+    }
+
     static public char getOperationSymbol(Operations operation) {
         return switch (operation) {
             case ADD -> '+';

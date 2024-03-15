@@ -1,4 +1,5 @@
 import java.io.*;
+import java.security.InvalidParameterException;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +12,13 @@ public class Main {
             return;
         }
 
-        Node tree = TreeCalculator.parse(arithmeticExpression);
+        Node tree;
+        try {
+            tree = TreeCalculator.parse(arithmeticExpression);
+        } catch (InvalidParameterException exception) {
+            System.out.println(exception.getLocalizedMessage());
+            return;
+        }
 
         TreeCalculator.print(tree);
         double result = TreeCalculator.calculate(tree);
